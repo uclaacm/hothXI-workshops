@@ -6,4 +6,4 @@ The following workshops are available this year and will be posted to this repos
 
 Intro to Hackathons, HTML/CSS/Javascript, Web Development: React, Mobile Development: React Native, Web API's, Intro to Backend: Servers, Intro to Backend: Databases, Intro to Version Control: Git, Intro to Game Development: Unity, Intro to Machine Learning, Intro to UI/UX.
 
-For more information on HOTH XI, check out the HOTH website!
+For more information on HOTH XI, check out the HOTH website: https://hoth.uclaacm.com
