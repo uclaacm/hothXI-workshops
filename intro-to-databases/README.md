@@ -13,11 +13,11 @@ Now lets begin :)
 
 ## Overview of Topics
 - [What is a Database](#what-is-a-database)
-- [When do we need Databases]()
-- [Types of Databases]()
-- [Choosing a Database]()
-- [Installations]()
-- [Demo]()
+- [When do we need Databases](#when-do-we-need-databases)
+- [Types of Databases](#types-of-databases)
+- [Choosing a Database](#choosing-a-database)
+- [Installations](#installations)
+- [Demo](#demo)
 
 ## What is a Database?
 Before delving into databases, let's lay the groundwork by discussing **data**—the fundamental building blocks of information. Data is everywhere around is! From scrolling through social media, making online purchases, and logging into our laptops, we are constantly generating data. In order to use this data to be able to make meaningful insides, we can store it within a structure called a **database,** which will allow us to easily retrieve and updata our information.
