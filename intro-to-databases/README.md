@@ -116,7 +116,9 @@ This launches our application in a default web browser and opens a new tab displ
 Open App.js in src folder and add the following import statements to the top:
 
 ```import db from "./firebase";```
+
 ```import { doc, setDoc, getDoc } from "firebase/firestore";```
+
 ```import React, { useState } from 'react';```
 
 Additionally, delete all the text in between the ```<header className="App-header">``` and ```</header>``` tags.
