@@ -87,7 +87,7 @@ Below are the reccomended tools and technologies for setting up your database an
 - **Package Handler:** [Node.js](https://nodejs.org/en/download) which also comes with npm!
 - **Database:** [Firebase](https://firebase.google.com/?gad_source=1&gclid=CjwKCAiA29auBhBxEiwAnKcSqjSp5rV6fNBePzS98xV-Vc8caHCpFqRJ8_8GkEwexwdB1p4-1qPfdBoCq5UQAvD_BwE&gclsrc=aw.ds)
 
-In order to verify that you have Node and npm downloaded on your system you can run ``` node -v ``` and ``` npm -v ``` which should print out the version you're currently running. 
+In order to verify that you have Node and npm downloaded on your system you can run ``` node -v ``` and ``` npm -v ``` in your terminal which should print out the version you're currently running. 
 
 ## Demo
 
@@ -114,6 +114,7 @@ This launches our application in a default web browser and opens a new tab displ
 
 **Step 3: Connecting Firebase to React**
 Open App.js in src folder and add the following import statements to the top:
+
 ```import db from "./firebase";```
 ```import { doc, setDoc, getDoc } from "firebase/firestore";```
 ```import React, { useState } from 'react';```
