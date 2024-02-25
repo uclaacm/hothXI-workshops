@@ -2,7 +2,7 @@
 This workshop covers the basics of Web Development - HTML, CSS, and JavaScript! Together, they make up the structure (HTML), the style (CSS), and the functionality (JS) of a web application. Keep reading or watch the workshop to learn how to utilize these tools to make a super cool web application of your own!
 
 # Resources
-
+- [Slides](http://tinyurl.com/4hdpf7nz)
 
 # HTML
 HTML, more formally known as HyperText Markup Language, is the structure of a web page. Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages.
@@ -70,7 +70,9 @@ Everything from the start tag to the end tag is called an element. Some tags, li
     <!DOCTYPE html>
     <html>More stuff goes here</html>
 ```
+
     c. Inside the html element, add a head element and a body element
+    
 ```
     <html>
         <head>
@@ -234,4 +236,11 @@ In the above code, when a user clicks on the button containing the text "Click h
 
 ## Closing Notes
 While that is nowhere near all the important and useful components of JavaScript, hopefully the above information will enable you to get started on a project of your own! Learning through doing is truly the best way to grow your skills! If you need any help, we are here to help! Good luck and happy hacking!
+
+## For More Information...
+Check out these sites!
+
+- [W3 Schools - Intro to HTML](https://www.w3schools.com/html/html_intro.asp)
+- [Mozilla - CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference)
+- [Mozilla - JavaScript First Steps](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps)
 
