@@ -66,25 +66,23 @@ Everything from the start tag to the end tag is called an element. Some tags, li
 
 
     b. Beneath the DOCTYPE tag, add an html element
-```
-    <!DOCTYPE html>
-    <html>More stuff goes here</html>
-```
+
+    ```<!DOCTYPE html>
+    <html>More stuff goes here</html>```
+
 
     c. Inside the html element, add a head element and a body element
     
-```
-    <html>
+``` <html>
         <head>
         </head>
 
 
         <body>
         </body>
-    </html>
-```
-    The head tags contain metadata about the webpage, usually including the title, character set, styles, and scripts.
+    </html>```
 
+    The head tags contain metadata about the webpage, usually including the title, character set, styles, and scripts.
 
     The body tags contain everything visible on the webpage.
 
