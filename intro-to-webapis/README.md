@@ -113,11 +113,9 @@ Now is the time to write out some code to make our actual HTTP request. As a sid
     });
     return response.data.results;
 } 
-
-   searchImages();
    ```
 
-   This function will log the array of image objects coming back from the API to the console.
+This function will log the array of image objects coming back from the API to the console.
 
 4. In your other React components, you can use the `searchImages` function to fetch images based on a search term and update the state in your components accordingly.
 
