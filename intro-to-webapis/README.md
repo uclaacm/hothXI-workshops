@@ -12,7 +12,7 @@ Hello! Welcome to HOTH XI's Intro to Web APIs workshop. This is a guide to intro
 
 ## Overview of Topics
 - [The Client-Server Model](#the-client--server-model)
-- [HTTP: The Language of Client-Server Communication](#hTTP:-the-language-of-client--server-communication)
+- [HTTP: The Language of Client-Server Communication](#http:-the-language-of-client-/-server-communication)
 - [What is an API?](#what-is-an-api?)
 - [Demo: Building a React APP Using Unsplash API](#demo:-building-a-react-app-using-unsplash-api)
   
