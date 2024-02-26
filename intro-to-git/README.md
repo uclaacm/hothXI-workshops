@@ -1,10 +1,10 @@
 # HOTH XI - Intro to Git
 
-**Date**: TBD
+**Date**: March 3, 2024
 
 **Teacher**: [Lillian Gonick](https://github.com/lilliangonick)
 
-Hello everyone! Welcome to the Intro to Git workshop README! In this workshop we will be covering the version control system: Git. 
+Hello everyone! Welcome to the Intro to Git workshop README! In this workshop, we will be covering the version control system: Git. 
 Together, we will walk through installing git, creating our first repository, and merging two branches! 
 
 ## Resources
