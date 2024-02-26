@@ -1,9 +1,39 @@
-# hothXI-workshops
+# Intro to Web APIs
 
-Hack on the Hill (HOTH) is a 12-hour, beginner-friendly hackathon hosted by ACM Hack @ UCLA. This event is designed to give beginners a taste of what a hackathon looks and feels like. During HOTH, there are workshops and mentors available to provide technical support and help beginners get started on their projects.
+**Date**: March 3rd 2024
 
-The following workshops are available this year and will be posted to this repository before the day of the event:
+**Teacher**: [Kaylin Chung](https://github.com/kaylin-chung)
 
-Intro to Hackathons, HTML/CSS/Javascript, Web Development: React, Mobile Development: React Native, Web API's, Intro to Backend: Servers, Intro to Backend: Databases, Intro to Version Control: Git, Intro to Game Development: Unity, Intro to Machine Learning, Intro to UI/UX.
+Hello! Welcome to HOTH XI's Intro to Web APIs workshop. This is a guide to introduce you to the foundations of Web APIs that will allow you to integrate them into any fullstack project. We will be covering the client-server model, HTTP requests & responses, and how we can leverage external servers to retrieve data and services for an app. Keep reading to learn more!
 
-For more information on HOTH XI, check out the HOTH website: https://hoth.uclaacm.com
+## Resources
+- [Slides](http://tinyurl.com/yxxapev3)
+- [Recording](TBD)
+
+## Overview of Topics
+- [The Client-Server Model](#the-client--server-model)
+- [HTTP: The Language of Client-Server Communication](#hTTP:-the-language-of-client--server-communication)
+- [What is an API?](#what-is-an-api?)
+- [Demo: Building a React APP Using Unsplash API](#demo:-building-a-react-app-using-unsplash-api)
+  
+## The Client-Server Model
+
+## HTTP: The Language of Client-Server Communication
+
+## What is an API?
+
+## DEMO: Building a React App Using Unsplash API
+
+## Closing Notes
+Web APIs are a great way to add neat features and functionality to any app, and I hope this workshop gave you some working familiarity with them to help you get started on a cool project of your own!
+Good luck and happy hacking!
+
+## Looking for Your Next API?
+Check out these popular sites!
+
+- [Spotify API](https://developer.spotify.com/documentation/web-api)
+- [Google Maps API](https://developers.google.com/maps/apis-by-platform)
+- [Twitter API](https://developer.twitter.com/en/docs/twitter-api)
+- [Meta API](https://developers.facebook.com/docs/instagram/)
+- [WhatsApp API](https://business.whatsapp.com/developers/developer-hub)
+
