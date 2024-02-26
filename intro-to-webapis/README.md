@@ -75,6 +75,50 @@ Once registered, you will receive an access key (and a secret key) that you'll u
 3) Read the Documentation:
 You should familiarize yourself with the API endpoints and request/response formats by reviewing the Unsplash API Documentation!
 
+
+Now is the time to write out some code to make our actual HTTP request. As a side note, React has no functionality for making HTTP requests, so we need to download something called axios, which is a JavaScript library that allows us to make these requests.
+
+1. Open the terminal in your project directory and install axios:
+
+   ```bash
+   npm install axios
+   ```
+
+   This will place the library into the `node_modules` folder inside your directory to make use of.
+
+2. The Axios Library is an object that has a couple of different functions tied to it. In our case, we want to make a GET request, so we would call the function `axios.get` and then pass in the URL that we want to fetch.
+
+   ```javascript
+   axios.get('https://api.unsplash.com/search/photos', {
+     params: { query: 'bunnies' },
+     headers: {
+       Authorization: 'Client-ID YOUR_ACCESS_KEY'
+     }
+   });
+   ```
+
+3. To handle this function correctly, we need to make a couple of adjustments. The first is adding the `await` keyword. JavaScript doesn’t automatically pause when you make a request, so the response probably hasn’t been received yet. The `await` keyword is a way of telling JavaScript to wait until we get a response to run the next line of code.
+
+   Testing Through Console:
+
+   ```javascript
+   async function searchImages() {
+     const response = await axios.get('https://api.unsplash.com/search/photos', {
+       params: { query: 'bunnies' },
+       headers: {
+         Authorization: 'Client-ID YOUR_ACCESS_KEY'
+       }
+     });
+     console.log(response.data.results);
+   }
+
+   searchImages();
+   ```
+
+   This function will log the array of image objects coming back from the API to the console.
+
+4. In your other React components, you can use the `searchImages` function to fetch images based on a search term and update the state in your components accordingly.
+
 ## Closing Notes
 Web APIs are a great way to add neat features and functionality to any app, and I hope this workshop gave you some working familiarity with them to help you get started on a cool project of your own!
 Good luck and happy hacking!
@@ -87,4 +131,5 @@ Check out these popular sites!
 - [Twitter API](https://developer.twitter.com/en/docs/twitter-api)
 - [Meta API](https://developers.facebook.com/docs/instagram/)
 - [WhatsApp API](https://business.whatsapp.com/developers/developer-hub)
+
 
