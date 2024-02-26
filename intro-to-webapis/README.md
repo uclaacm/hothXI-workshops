@@ -8,7 +8,7 @@ Hello! Welcome to HOTH XI's Intro to Web APIs workshop. This is a guide to intro
 
 ## Resources
 - [Slides](http://tinyurl.com/yxxapev3)
-- [Recording]([TBD](http://tinyurl.com/d258732t))
+- [Recording]((http://tinyurl.com/d258732t)
 
 ## Overview of Topics
 - [The Client-Server Model](#the-client--server-model)
