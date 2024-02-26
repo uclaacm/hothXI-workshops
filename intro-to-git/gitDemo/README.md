@@ -31,14 +31,14 @@ Together, we will walk through installing git, creating our first repository, an
 Git is a _**version control system**_. But, what does that really mean?
 
 To break it down, Git essentially allows users to keep track of code history. Git takes "snapshots" of code, keeping a log of **what** changed, **who** changed it, and **when** it was changed. 
-As a result, you are allowed to "go back in time" by reverting to old copies of code. Woah, going back to old code is very useful!!
+As a result, you can "go back in time" by reverting to old copies of code. Woah, going back to old code is very useful!!
 
-An easy way to think about git is comparing it to a Google Doc. How do Google Docs work? Well ... different people 
-are granted access to the same document with a common goal in mind. From there, individuals can change/add/delete portions of the document. Google Docs then keeps a complete log of the documents previous history. 
-At any point, the document can be reverted to a previous version. Git works in similar but more structured way!
+An easy way to think about git is by comparing it to a Google Doc. How do Google Docs work? Well ... different people 
+are granted access to the same document with a common goal in mind. From there, individuals can change/add/delete portions of the document. Google Docs then keeps a complete log of the document's previous history. 
+At any point, the document can be reverted to a previous version. Git works in a similar but more structured way!
 
-Git not only tracks the history of source code changes but also **faciliates collaboration on code**! Gits many features enables developers to work on multiple versions of the same 
-source code individually. As a result, different people working on the same project can edit the project. After the desired changes have effectively been made, these different versions can be seamlessly merged together to 
+Git not only tracks the history of source code changes but also **facilitates collaboration on code**! Gits many features enable developers to work on multiple versions of the same 
+source code individually. As a result, different people working on the same project can edit the project. After the desired changes have effectively been made, these different versions can be seamlessly merged to 
 create a final product that reflects the collective efforts of many developers. 
 
 ## Installing Git
@@ -46,7 +46,7 @@ Now that you understand from a high level what Git is, it is time to install it!
 
 Follow the installation steps of your current device:
 
-_please note that all commands that begin '$' are meant to be typed into your terminal. Please do NOT include the '$' in your command!_
+_Please note that all commands that begin '$' are meant to be typed into your terminal. Please do NOT include the '$' in your command!_
 
 **Linux**
 
@@ -61,7 +61,7 @@ Please click [this link](https://gitforwindows.org/) to download Git.
 
 **MacOS**
 
-Install [Homebrew](https://brew.sh/), a package manager that simplifies the process of installing software on mac devices. Homebrew automates the download, installation and configuration of packages for you! Super Cool!
+Install [Homebrew](https://brew.sh/), a package manager that simplifies the process of installing software on Mac devices. Homebrew automates the download, installation, and configuration of packages for you! Super Cool!
 
 After downloading Homebrew, copy the following command into your terminal: 
 ``` git
@@ -83,28 +83,28 @@ Next, set up your email:
 $ git config --global user.email hackfan@example.com
 ```
 
-To double check that you typed your information correctly, use the command:
+To double-check that you typed your information correctly, use the command:
 ``` git
 $ git config --list
 ```
 ## Terminologies to Know
-Branch? Repo? Merge Conflicts? With Git, there are multiple common terms that are often thrown around. Here are some of the most key terms to understand:
+Branch? Repo? Merge Conflicts? With Git, multiple common terms are often thrown around. Here are some of the most key terms to understand:
 
 ## Repository
 A Repository (repo) is a location where all the files of a project are stored. This includes all the previous versions of files which provides the perfect place to track changes made in a project. 
 
 There are two different types of repositories, **local** and **remote** repositories. The word repository is going to be stated a lot, so I will be referring to them as a "repo". 
 
-First up are local repos. This is the repo stored on your local machine (personal computer). This directory holds all the files, folders, and version historys of a project that you set Git to track. Local repositories are created when you initialize the repo in the current folder (we will go over how to do this very soon!). You can make make commits and branches on your local repo!
+First up are local repos. This is the repo stored on your local machine (personal computer). This directory holds all the files, folders, and version history of a project that you set Git to track. Local repositories are created when you initialize the repo in the current folder (we will go over how to do this very soon!). You can make commits and branches on your local repo!
 
-Now that you understand local repos. it is time to move onto remote repos. Remote repos are versions of your project stored on a server like GitHub (one of the most common)! Compared to a local repo, remote repo facilitates collaborting with others and synchronizing work across multiple computers. But, how do you actually utilize a remote repo? To do so you can clone (copy) a repo from a remote server. In doing so, Git will create a local copy of the entire project, including all the files, commits, and branches. Now not only you can edit a current project on your own computer but multiple developers can work on the
-same project simultaneously. 
+Now that you understand local repos. it is time to move on to remote repos. Remote repos are versions of your project stored on a server like GitHub (one of the most common)! Compared to a local repo, a remote repo facilitates collaborating with others and synchronizing work across multiple computers. But, how do you utilize a remote repo? To do so you can clone (copy) a repo from a remote server. In doing so, Git will create a local copy of the entire project, including all the files, commits, and branches. Now not only you can edit a current project on your computer but multiple developers can work on the
+the same project simultaneously. 
 
 ## Branch
-Branches are what actually allow developers to work on different parts of a project on their own without affecting the main project. Think of a group project where a teacher assigns a worksheet that needs to be completed. Each student gets their own copy and the group divides up the work by section. From there, each students works on their assignment. This is similiar to making a branch. A student is able to contribute to a bigger goal without conflicting with others since everyone has their own copy. After each person finishes, they copy each response onto a single worksheet that will be turned into the teacher. This is exactly like the "main" branch! The main branch is the default branch created when a new repo is initialized. "Main" serves as the baseline for all the other branches. Just like the main worksheet that will be turned into the teacher, this copy is constantly added on to. 
+Branches are what actually allow developers to work on different parts of a project on their own without affecting the main project. Think of a group project where a teacher assigns a worksheet that needs to be completed. Each student gets their own copy and the group divides up the work by section. From there, each student works on their assignment. This is similar to making a branch. A student is able to contribute to a bigger goal without conflicting with others since everyone has their own copy. After each person finishes, they copy each response onto a single worksheet that will be turned in to the teacher. This is exactly like the "main" branch! The main branch is the default branch created when a new repo is initialized. "Main" serves as the baseline for all the other branches. Just like the main worksheet that will be turned in to the teacher, this copy is constantly added on to. 
 
 ## Merge
-Merging is the process of combining two or more branches into a single branch. As mention in the previous paragraph, Git allows for multiple people to work separately. But, these versions must be combined at some point to see the work other people complete! This process is referred to as "merging". 
+Merging is the process of combining two or more branches into a single branch. As mentioned in the previous paragraph, Git allows multiple people to work separately. But, these versions must be combined at some point to see the work other people complete! This process is referred to as "merging". 
 
 One important thing to keep in mind is _merge conflicts_. Ooh, that does not sound good, and they are not! Merge conflicts arise when you attempt to merge two branches that have conflicting changes. This can be when two different developers change the same piece of code. Then, both developers try to merge their changes into the main branch. Git does not know what changes should take precedence, so the merge is unable to be completed. Luckily, GitHub has tools to _resolve_ merge conflicts. When you attempt to merge your branch, Git will tell you that there is a conflict. Then, GitHub locates the location of the issue and allows you to edit the code right there! Once the issue has been changed, you can continue on merging your code! 
 
@@ -120,7 +120,7 @@ A common misconception for beginners is that Git and GitHub are the same thing. 
 
 As previously mentioned, Git is a version control system designed to track changes in code and manage collaboration on projects. Git runs on your personal computer and works offline.
 
-To compare, GitHub (what you are on right now!) is a platform built **around** Git to provide Git repositories. Hosted on the web, GitHub provides additional features ontop of 
+To compare, GitHub (what you are on right now!) is a platform built **around** Git to provide Git repositories. Hosted on the web, GitHub provides additional features on top of 
 Git in order to ease collaboration on projects. 
 
 In other words, even though Git and GitHub are two different things, they are used together! You start on your personal computer, install Git, and allow Git to manage the source code locally. You can 
@@ -131,11 +131,11 @@ To make your GitHub account follow the directions on this [link](https://docs.gi
  Now you have your own GitHub account. Yay!!
 
 ## Git Workflow
-Next up we are going to be going over the Git workflow. More specficially, the three main states. 
+Next up we are going to be going over the Git workflow. More specifically, the three main states. 
 
-First up is the **working directory**! The working directory is all of the files on your personal device. Think of it as the project folder on your computer that you use when working on a project. But how does this relate to Git? Well, you need to tell Git to track the changes on the files on your working directory! And that leads up to the second state!
+First up is the **working directory**! The working directory is all of the files on your personal device. Think of it as the project folder on your computer that you use when working on a project. But how does this relate to Git? Well, you need to tell Git to track the changes on the files in your working directory! And that leads up to the second state!
 
-Next up is the **Staging Area**! The staging area will hold all of the changes that git will include in the next snapshot/commit. Imagine you have been working on your code and made changes to a file. Next you want to save these new changes to your remote repo. The staging area is the intermediate area between where you make changes to files, or the working directory, and the actually Git repo, where changes are permanently recorded. 
+Next up is the **Staging Area**! The staging area will hold all of the changes that git will include in the next snapshot/commit. Imagine you have been working on your code and made changes to a file. Next, you want to save these new changes to your remote repo. The staging area is the intermediate area between where you make changes to files, or the working directory, and the actually Git repo, where changes are permanently recorded. 
 
 The third state is the **Repository**, I told you we would be referencing repos a lot! As mentioned earlier, the repo is where all of the changes will be permanently stored. Now you can access and reference these snapshots at any time. Yay!
 
@@ -145,7 +145,7 @@ Now that we understand the different moving parts of Git it is time to make our 
 After clicking the link, create a descriptive name for your new repository and determine if you want it to be private or public. A private repo means people can only see your repo if you grant them permission. On the other hand, anyone can view your public repo. A link will populate in a blue box after you click "Create Repository". Keep track of this link! Now you have a remote repo on GitHub, Nice!
 
 
-Now it is time to set up your local repo. Start by creating folder on your computer. Next open up that folder on your text editor of choice. Then, open the terminal and check that you are on the correct file path. 
+Now it is time to set up your local repo. Start by creating a folder on your computer. Next, open up that folder on your text editor of choice. Then, open the terminal and check that you are on the correct file path. 
 
 Let's initialize your repo!
 Type the following commands into your terminal: 
@@ -162,15 +162,15 @@ Type the following commands into your terminal:
    
      `$ git remote add origin [GitHub repository link]`
    
-    Next rename the current branch to "main":
+    Next, rename the current branch to "main":
    
      `$ git branch -M main`
    
-     Lastly, push the local "main" branch to the remove repository
+     Lastly, push the local "main" branch to the remote repository
    
      `$ git push -u origin main`
 
-Awesome, now you have both a local and remote repository that are linked! View your remote repo by logging onto the GitHub. 
+Awesome, now you have both a local and remote repository that are linked! View your remote repo by logging onto GitHub. 
 
 ## Walkthrough
 
@@ -189,7 +189,7 @@ A common work process looks like the following:
 10. Merge
 
 But, how do we complete these steps? 
-_copy the following comands into your terminal!_
+_copy the following commands into your terminal!_
 
 1. Make sure you are on the main branch:
    
@@ -219,11 +219,11 @@ _copy the following comands into your terminal!_
   
 14. Create a pull request by following the link that the terminal provides after step 7. The link will look like the following: github.com/[username]/[repository-name]/pull/new/[branch-name]. By clicking the link you will be able to make the PR in the correct repository by clicking the big green button.
     
-16. GitHub alerts you on the pull request page if there are any merge conflicts. To fix conflicts (if there are any), GitHub highlights where the conflict is occuring. Click "Resolve Conflicts" and edit the files directly on GitHub.
+16. GitHub alerts you on the pull request page if there are any merge conflicts. To fix conflicts (if there are any), GitHub highlights where the conflict is occurring. Click "Resolve Conflicts" and edit the files directly on GitHub.
     
 18. Once there are no merge conflicts detected complete the pull request and merge the changes.
 
-Now you have sucessfully created changes in your code and added it to your repo!!! 
+Now you have successfully created changes in your code and added it to your repo!!! 
 
 ## Additional Git Commands
 Finally, here are some additional useful Git commands to know: 
@@ -252,7 +252,7 @@ Push changes to the remote repo:
 
 `$ git push -u origin [branch name]`
 
-Intergrate changes from the remote repo to the local branch:
+Integrate changes from the remote repo to the local branch:
 
 `$ git pull`
 
