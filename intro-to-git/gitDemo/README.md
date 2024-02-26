@@ -145,7 +145,7 @@ Now that we understand the different moving parts of Git it is time to make our 
 After clicking the link, create a descriptive name for your new repository and determine if you want it to be private or public. A private repo means people can only see your repo if you grant them permission. On the other hand, anyone can view your public repo. A link will populate in a blue box after you click "Create Repository". Keep track of this link! Now you have a remote repo on GitHub, Nice!
 
 Your screen should look like the following once your GitHub Repo is made: 
-<img width="150" alt="Screenshot 2024-02-23 at 7 44 48 PM" src="https://github.com/lilliangonick/demo/assets/148294316/5991ef66-6bbe-43c9-b60e-c1edb81e6e5a">
+<img width="300" alt="Screenshot 2024-02-23 at 7 44 48 PM" src="https://github.com/lilliangonick/demo/assets/148294316/5991ef66-6bbe-43c9-b60e-c1edb81e6e5a">
 
 
 Now it is time to set up your local repo. Start by creating folder on your computer. Next open up that folder on your text editor of choice. Then, open the terminal and check that you are on the correct file path. 
