@@ -90,7 +90,7 @@ Now is the time to write out some code to make our actual HTTP request. As a sid
 
    ```javascript
    axios.get('https://api.unsplash.com/search/photos', {
-     params: { query: 'bunnies' },
+     params: { query: term },
      headers: {
        Authorization: 'Client-ID YOUR_ACCESS_KEY'
      }
@@ -102,15 +102,17 @@ Now is the time to write out some code to make our actual HTTP request. As a sid
    Testing Through Console:
 
    ```javascript
-   async function searchImages() {
-     const response = await axios.get('https://api.unsplash.com/search/photos', {
-       params: { query: 'bunnies' },
-       headers: {
-         Authorization: 'Client-ID YOUR_ACCESS_KEY'
-       }
-     });
-     console.log(response.data.results);
-   }
+   const searchImages = async (term) => {
+    const response = await axios.get('https://api.unsplash.com/search/photos', {
+        headers: {
+            Authorization: 'Client-ID YOUR_ACCESS_KEY',
+        },
+        params: {
+            query: term,
+        },
+    });
+    return response.data.results;
+} 
 
    searchImages();
    ```
