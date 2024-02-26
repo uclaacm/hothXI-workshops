@@ -9,7 +9,8 @@ Together, we will walk through installing git, creating our first repository, an
 
 ## Resources
 - [Google Slides](https://docs.google.com/presentation/d/1fU0VoWGm95IsHadN5STolL6PO74Et_sfQFq7WQ5_d24/edit?usp=sharing)
-- [Workshop Recording](TBD)
+- [Workshop Recording](https://ucla.zoom.us/rec/share/7Iizjgx-rKVLHDt-5hQxE2d7_9v5pAf17xj169G4S3Z08HSbdPLPnnuojVSbe7lW.8KiRWXjCZz2yQI_9?startTime=1708898751000
+Passcode: wE7Y5*73)
 
   ## Table of Contents
   - [What is Git?](#what-is-git)
