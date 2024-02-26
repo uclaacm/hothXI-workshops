@@ -113,7 +113,6 @@ Now is the time to write out some code to make our actual HTTP request. As a sid
     });
     return response.data.results;
 } 
-   ```
 
 This function will log the array of image objects coming back from the API to the console.
 
