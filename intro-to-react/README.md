@@ -21,6 +21,7 @@ In this workshop we will utilize HTML, CSS, and JavaScript, so I would recommend
 ## Resources
 
 - [Slides](http://tinyurl.com/hothXI-react-slides)
+- [Workshop Recording](https://drive.google.com/file/d/1l93yzXV5vNwjpgm9Z6tip5NMWz4-e6zr/view?usp=sharing)
 
 ## React Introduction
 ### What is React?
