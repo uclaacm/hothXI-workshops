@@ -1,0 +1,40 @@
+.App {
+  text-align: left;
+  background-color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.playlist {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #000000;
+}
+
+#playlist-header {
+  display: flex;
+  align-items: center;
+  background-color: #000000;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#header-index {
+  text-align: left;
+  flex: 1;
+  color: darkgray;
+}
+
+#header-title {
+  text-align: left;
+  padding-right: 6.8in;
+  flex: 1;
+  color: darkgray;
+}
+
+#header-time {
+  text-align: left;
+  flex: 1;
+  color: darkgray;
+}
