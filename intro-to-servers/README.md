@@ -1,175 +1,104 @@
-# :sparkles: HOTH XI - Intro to Servers :sparkles:
+# HOTH XI - Intro to Servers
 
--- BELOW IS TO BE UPDATED --
-
-**Date**: March 2, 2024
-
-**Location**: Virtual
+**Date**: March 3rd, 2024
 
 **Teacher**: [Samuel Perrott](https://github.com/SPerrott22)
 
 **Resources**:
 
 - [Slides](https://docs.google.com/presentation/d/1RRLdpQPd8cEvC-9tqNKD9qUO08CcmGYJo30rTwJiQkU/edit?usp=sharing)
-- [Workshop Recording](https://drive.google.com/file/d/1StnD2qdbx-CFr_29UBXc9lnCiipWL79S/view?usp=share_link)
+- [Workshop Recording](https://drive.google.com/file/d/1B15A9H4GUWSNhagBk6XYZWyCs0A2K3cj/view?usp=sharing)
 
-## Overview :white_check_mark:
+## Overview
 
-- [Introduction](#introduction-triangular_flag_on_post)
-- [Hardware and Software Servers](#hardware-and-software-servers-computer)
-- [Clients vs. Servers](#clients-vs-servers-nerd_face)
-- [Client and Server Communication (HTTP)](#client-and-server-communication-http-email)
+- [Servers](#servers)
+- [Clients](#clients)
+- [CRUD](#crud)
   - [HTTP Requests](#http-requests)
   - [HTTP Responses](#http-responses)
-- [JSON](#json-page_facing_up)
-- [DEMO](#demo-file_folder)
-  - [Setting Up the Server Environment](#setting-up-the-server-environment)
-  - [Server Creation](#server-creation)
-    - [Expanding the API - User Database Setup](#expanding-the-api---user-database-setup)
-    - [Expanding the API - User Creation](#expanding-the-api---user-creation)
-    - [Testing Routes/Endpoints with Postman](#testing-routesendpoints-with-postman)
-    - [Expanding the API - User Deletion](#expanding-the-api---user-creation)
+- [JSON](#json)
+- [DEMO](#demo)
 
-NOTE:
-Before getting into the workshop, I recommend that you have a basic understanding of JavaScript, which was covered in the Intro to HTML/CSS/JS workshop.
-Anyways, let's get started!
+Nota Bene: This workshop will be using Python and JavaScript to create a server and client, respectively. If you are unfamiliar with these languages, it is recommended to familiarize yourself with them before continuing. Feel free to check out the Intro to HTML/CSS/JS workshop for a refresher on JavaScript!
 
-## Introduction :triangular_flag_on_post:
+## Servers
 
-So, what exactly is a server?
-Maybe you have some web or mobile development experience or maybe you don't, but in some form or fashion, you've probably interacted with some sort of server. Whether that's been playing an online video game like Minecraft, watching YouTube, or simply eating at a sit-down restaurant, some sort of server was present. While one of these things is not in the same category, the general concept of a server stays the same.
+What is a server?
 
-**A server is simply something that takes a request and provides some sort of response based on that request.**
+The first thing that may come to mind is a ~~minecraft server~~ waiter at a restaurant, but in the context of technology, a server is something slightly (although not entirely) different.
 
-Calling something a "server" really is just semantics for describing the role, purpose, or behavior of what said thing does.
+Hardware-wise, a server is a computer that is always on. These servers are stored in data centers and are used to store and manage data, host websites, and run applications. For example, many websites are hosted on Google Cloud, which is a collection of servers that Google owns and maintains.
 
-## Hardware and Software Servers :computer:
+Software-wise, a server is a program that provides services to other programs or devices. This can be a web server, which hosts webpages, or a database server, which stores and manages data.
 
-In our case, a server can take a hardware or software form depending on the context.
+## Clients
 
-**In the context of hardware, a server is just a computer that runs server software.**
+What is a client?
 
-These computers can take on more robust configurations, but at their core, they are just a more powerful version of your laptop.
-In fact, your laptop or desktop can even function as a server, which is what we will be using during the development of our demo.
-If you are interested in the hardware, there are videos all over the internet of people taking them apart and showing exactly what they are, such as [this one](https://www.youtube.com/watch?v=DS1FcT93Qy8&vl=en) by LTT.
+A client is a program or device that makes a request to a server for a specific resource or service. This can be a web browser, which requests webpages from a web server, or a mobile app, which requests data from a database server.
 
-**In the context of software, a server is just a program.**
+For instance, when you watch lecture recordings via Bruinlearn, your web browser is the client and Kaltura's server is the computer that hosts the lecture recordings.
 
-What makes the program a server program is that it will supply you with some response or data when a client makes a request to the "server" program.
-This software server will most likely include an API and interact with other resources like a database, but at its core, it is just some code.
+If you pay attention to your browser's developer tools "Network" tab when you load a webpage, you can see all the requests that your browser makes to the server to load the webpage.
 
-## Clients vs. Servers :nerd_face:
+Generally, the client is the frontend / user-facing side of an application while the server is part of the backend / server-side of an application.
 
-(oh, the irony)
+## CRUD
 
-So now, what is a client?
+In our case, we will be creating a server that will handle requests to perform CRUD operations on a database.
 
-**A client is a program or device that makes a request to a server for a specific resource or service.**
+CRUD stands for Create, Read, Update, and Delete, which are the four basic operations that can be performed on a database.
 
-Suppose you wanted to watch [this](https://youtu.be/FKluZLl5hFA) video.
-In this case, the software client that you would be using is most likely a web browser like Google Chrome, which leverages HTML, CSS, and JavaScript to bring you the UI/UX.
-
-After clicking the YouTube video, your client would make a request to the Youtube server asking for a webpage associated with the URL.
-
-The Youtube server would then send back a response that includes the resources necessary to render the webpage in the browser.
-
-Your browser would then render the YouTube webpage with the video, and any additional requests to the YouTube server, like pausing the video, would function similarly.
-
-What was just described is very much a simplification of how an interaction with the YouTube servers would work.
-In reality, there would be many more requests and responses to provide the entire UI/UX of the YouTube webpage.
-However, this is what a client and server interaction looks like from a software perspective.
-In our case, we will simply host our server program on the same computer that we host the client program on.
-
-As for some terminology, the **client** program is usually referred to as **a part of the front end**, and the **server** program is usually referred to as **a part of the backend**.
-
-Just as an aside, the backend also encompasses other things like a database and API.
-
-## Client and Server Communication (HTTP) :email:
-
-Now that we understand what clients and servers are, we need to know how they communicate.
-There are many data transfer protocols like SMTP for emails and FTP for high-speed file transfers, and in our case, the Hypertext Transfer Protocol or HTTP serves for data exchange on the Web.
-It works as a client-server protocol, which means that the client (usually a web browser) initiates requests to the web server as an HTTP request, which then sends back an HTTP response.
-An API (Application Programming Interface) is the software program and part of the server that facilitates these requests and responses between a client and a server.
-During the demo, we will write a software server, including its API.
-
-So, what do these requests and responses look like?
+Your application will likely need its own data store to keep track of users, posts, comments, etc. This is where CRUD operations come in handy.
 
 ### HTTP Requests
 
-An HTTP request consists of three parts: a request line, a header, and an optional body.
+We can perform CRUD operations on a database through HTTP requests.
+
+An HTTP request consists of three parts: a request line, optional headers, and an optional body.
 
 ```HTTP
-POST /api/authors HTTP/1.1
-Host: test.com
+POST /plants HTTP/1.1
+Host: localhost:8000
 Content-Type: application/json
 Cache-Control: no-cache
+
 {
-     "Username": "Aki",
-     "Age": 21
+     "Name": "Sea Fig",
+     "Type": "invasive species",
+     "Age": 2,
 }
 ```
 
 The request line takes the following form:
+
 `HTTP-METHOD URI/ENDPOINT HTTP-PROTOCOL`
-`POST /api/authors HTTP/1.1`
 
-There are several HTTP methods- some of the most common ones being GET, POST, PUT, and DELETE.
-Each one has a different function and describes what the request will do.
+in our case:
 
-- `GET` is used to retrieve data.
-- `POST` is used to send something to the server.
-- `PUT` is generally used to update something on the server, but has some ambiguity with POST.
-- `DELETE` is used to delete something on the server.
+`POST /plants HTTP/1.1`
 
-The next part of the request line is the endpoint, which is also known as the URI (Uniform Resource Identifier).
-It is the path to the place where you want to perform a request on the server.
-URIs are similar to URLs (Uniform Resource Locator), but again, this is just semantics and URIs and URLs are often used interchangeably in the context of endpoints.
-If you are curious:
+There are several HTTP methods (see [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)) - but the four main ones you'll need are GET, POST, PUT, and DELETE.
 
-- A URI is a string of characters that identifies something on the Internet. A URI can be used to identify any kind of Internet resource, including webpages, files, images, databases, etc.
+- `GET` is used to read data from the database.
+- `POST` is used to add new data to the database.
+- `PUT` is used to update a an item in the database.
+- `DELETE` is used to delete something from the database.
 
-  - URIs:
-    - mailto:hoshino.nonomi@example.com (identifies an email address)
-    - tel:+1-202-456-1111 (identifies a phone number)
-    - urn:isbn:9780811204811 (identifies a book using its ISBN)
+The URI/ENDPOINT is the path to the place where you want to perform a request on the server. A URL is a specific type of URI that identifies a resource available on the internet. Your URI will likely be on localhost, as you are testing your server locally.
 
-- A URL, on the other hand, is a specific type of URI that includes the network location of a resource and the protocol to be used to access it. A URL provides the specific location of a resource on the Internet and the protocol to be used to access it.
-  - URLs:
-    - https://www.hoshino.com/index.html (represents the address of a webpage)
-    - ftp://ftp.valgrind.com/data/file.txt (represents the location of a file on an FTP server)
-    - https://api.bluearch.com/users/12345 (represents an API endpoint for accessing user data with a specific ID)
+The HTTP protocol is the version of HTTP you are using. The version will not affect how you interact with an HTTP API, but newer HTTP versions tend to be faster and more secure.
 
-TL;DR all URLs are URIs, but not all URIs are URLs.
-Endpoints are also just a type of URI.
-
-In the last part of the request line, the HTTP protocol just specifies which HTTP version the request is using.
-
-Next up, we have the header of the request.
-Each request will have several headers which act as metadata to provide the server with more information about the request.
-
-```HTTP
-:authority: http.cat
-:method: GET
-:path: /101
-:scheme: https
-accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
-accept-encoding: gzip, deflate, br
-accept-language: en-US,en;q=0.9
-```
-
-And finally, the request body.
-This is just the content that we want to provide to the server.
-This can be the username and password of a user or the answers to some sort of server.
-It is optional, as some HTTP methods generally won’t use the body, such as when we just want to GET information.
+The headers are key-value pairs that provide information about the request, and the body of an HTTP request will contain the data that you want to send to the server (for instance, in a POST or PUT request).
 
 ### HTTP Responses
 
-An HTTP response is similar to a request and contains three parts: a status line, header, and body.
+An HTTP response is similar to a request and contains three parts: a status line, headers, and an optional body.
 
 ```HTTP
 HTTP/1.1 200 OK
-Date: Thu, 03 Jan 2019 23:26:07 GMT
-Server: gws
+Date: Wed, 10 Aug 2016 23:26:07 GMT
+Server: Apache
 Accept-Ranges: bytes
 Content-Length: 68894
 Content-Type: text/html; charset=UTF-8
@@ -178,338 +107,251 @@ Content-Type: text/html; charset=UTF-8
 ```
 
 The status line takes the following form:
-`HTTP-PROTOCOL STATUS_CODE`
-The `HTTP-PROTOCOL`, again, is the version of HTTP used.
-The status code can be numerous different codes, which tell the client if the request was successful, if there was an error, or if there is some action that needs to be taken.
-The three-digit codes follow the format:
+`HTTP-PROTOCOL STATUS_CODE STATUS_MESSAGE`
 
+The three-digit status codes follow the format:
+
+- `1xx`: informational
 - `2xx`: successful
-- `4xx`: unsuccessful + client-side error
-- `5xx`: unsuccessful + server-side error
+- `3xx`: redirection
+- `4xx`: client-side error
+- `5xx`: server-side error
 
-(As an aside, here is a [wonderful website](https://http.cat/) that'll let you know what different response codes mean.)
+You can find the full list of status codes [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
 
-The header and body are similar to the request, however, the header tells the client about the server and the body is the requested data we want to use or the webpage that we want to have displayed.
+Anything in the 200s is a successful response, and anything in the 400s or 500s is an unsuccessful response.
 
-HTTP Response Header Example:
+The headers are key-value pairs that provide information about the response, and the body of an HTTP response will contain the data that you requested from the server.
 
-```HTTP
-Access-Control-Allow-Origin: *
-cache-control: no-cache
-Content-Security-Policy: script-src 'self'; object-src 'self'
-Content-Type: text/javascript
-Cross-Origin-Resource-Policy: cross-origin
-Last-Modified: Thu, 16 Feb 2023 21:16:54 GMT
-```
+## JSON
 
-Body Example (JSON):
+The body of an HTTP Request / Response can be in many formats such as XML, YAML, HTML, images, etc., but we will mostly be dealing with JSON. JSON integrates nicely with JavaScript and is essentially the same as a Python dictionary where the keys have to be strings.
+
+HTTP Body Example (JSON):
 
 ```JSON
 {
-  "short_name": "http.cat",
-  "name": "HTTP Cat",
-  "icons": [
-    {
-      "src": "icon64.png",
-      "sizes": "64x64",
-      "type": "image/png"
-    },
-    {
-      "src": "icon192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon512.png",
-      "sizes": "512x512",
-      "type": "image/png"
+    "Name": "Spiny Ephedra",
+    "Habitat": "Desert",
+    "Perennial": true,
+    "Uses": ["Medicine", "Tea"],
+    "Image": "https://www.fs.fed.us/wildflowers/plant-of-the-week/images/spinyephedra/spinyephedra_1.jpg",
+    "Age": 21,
+    "Relatives": {
+        "Genus": "Ephedra",
+        "Family": "Ephedraceae"
     }
-  ],
-  "start_url": "/?utm_source=a2hs",
-  "display": "standalone",
-  "theme_color": "#d0383e",
-  "background_color": "#ffffff"
 }
 ```
 
-## JSON :page_facing_up:
+## DEMO
 
-When we are writing the API to handle these requests and responses on our server, we will mostly care about the body of these requests and responses.
+Let's go ahead and create an example server with Flask and connect it to a React frontend.
 
-The body can be many things like an image or webpage, but we usually handle data using **JSON (JavaScript object notation)**, which **acts as a standardized way to structure data.**
+Flask is a popular framework used to build servers. It is written in Python and is easy to use and understand, making it a great tool for beginners to learn how to build server APIs.
 
-While there are other alternatives to JSON like YAML, we are using Node.js for our server environment, and thus want our data to integrate well with JavaScript.
+Things you will need to have beforehand:
 
-```JSON
-{"cats": {
-  "id": "1",
-  "value": "cool cat",
-  "popup": {
-    "pet": [
-      {"value": "head", "onclick": "PetHead()"},
-      {"value": "belly", "onclick": "PetBelly()"},
-      {"value": "back", "onclick": "PetBack()"}
-    ]
-  }
-}}
-```
-
-## DEMO :file_folder:
-
-### Setting Up the Server Environment
-
-In this demo, we will be creating an Express server!
-Express is a popular framework used to build web servers along with Node.js.
-As a framework, it handles requests, responses, and routing traffic to different parts of an application, which otherwise would require a lot (and I mean a LOT) of tedious code using only Node.js.
-
-We will create a simple Express server that listens on a specified port, handles GET, POST, and DELETE requests, and responds with some basic data.
-
-What you will need to follow along with the demo:
-
-- [VSCode](https://code.visualstudio.com/Download) (or a text editor of your choice)
-- [Node.js](https://nodejs.org/en/download/) (LTS)
-- [Postman](https://www.postman.com/downloads/) (can be used in browser)
-- [Express](https://expressjs.com/en/starter/installing.html)
+- [VSCode](https://code.visualstudio.com/Download)
+  - [Postman Extension](https://marketplace.visualstudio.com/items?itemName=Postman.postman-for-vscode)
+- [Node.js](https://nodejs.org/en/download/)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [React](https://reactjs.org/docs/getting-started.html)
+- [Python](https://www.python.org/downloads/)
 
-NOTE: After installing Node, open the terminal and type:
-
-```
-node --version
-```
-
-You should see a version number:
-
-```
-v18.13.0
-```
-
-Feel free to look at some tooling documentation:
-
-- [VSCode](https://code.visualstudio.com/docs/setup/setup-overview)
-- [Postman](https://learning.postman.com/docs/getting-started/introduction/)
-
-The source code is also in this repository, so please reference it!
-
-To get started, create a new directory/folder.
-On Unix-based systems:
+To get started, create a new directory/folder for our app.
 
 ```shell
-mkdir server-test
-cd server-test
+mkdir demo-app
+cd demo-app
 ```
 
-Now, initialize a new Node.js project with `npm init` and follow the prompts.
-You can just hit enter (leave them blank) on all of them if you wish.
-
-To install Express, run `npm install express`.
-After it finishes installing, create a new file named `server.js` and open it in your text editor.
-On Unix-based systems with VSCode, you can use:
+We will have two folders inside our `demo-app` folder: one for the server and one for the client. Let's first create the backend folder (which will store our server and - in your case - may also include a database).
 
 ```shell
-touch server.js
+mkdir backend
+cd backend
+```
+
+Now, let's create a new Python virtual environment to install Flask in.
+
+```shell
+python3 -m venv venv
+source venv/bin/activate
+```
+
+Ok, let's install Flask and the other packages we will need.
+
+```shell
+pip install flask flask-restful flask-cors
+```
+
+Cool! Now we have Flask installed in our virtual environment. Let's create a new file called `app.py` and open it in your text editor.
+
+```shell
+touch app.py
 code .
 ```
 
-Now, we can write our server program using Express!
+We'll start off with following boilerplate code for our server:
 
-### Server Creation
+```python
+from flask import Flask, request
+from flask_restful import Api, Resource, abort, reqparse
+from flask_cors import CORS
 
-First, let's require the Express module and create an Express app with:
+app = Flask(__name__)
+api = Api(app)  # Will be used to add endpoints to our server
+CORS(app)  # Allows our frontend to communicate with our server
 
-```js
-// Import express module
-const express = require("express");
-// Create an express application
-const app = express();
+### Your code here ###
+
+if __name__ == '__main__':
+    app.run(debug=True)
 ```
 
-Now, define a route (also known as an endpoint) that responds to GET requests on the root URL ('/') that serves a webpage with an HTML response.
+This code initializes a Flask app and an API, and sets up CORS (Cross-Origin Resource Sharing) to allow our server to communicate with our React frontend. The last line allows us to run the file as a script and starts the server in debug mode.
 
-```js
-// Define a route that serves a web page
-app.get("/", (req, res) => {
-  res.send("<h1>Hello, world!</h1>");
-});
-```
+Usually, now is when you would connect your server to a database (check out this [article](https://medium.com/@choihalim/python-building-restful-apis-with-flask-and-sqlalchemy-4bd0997bae3a) for an example of connecting to a SQL databse or this [article](https://betterprogramming.pub/api-development-in-python-with-flask-resful-and-mongodb-71e56a70b3a6) for an example of connecting to a No-SQL database), but for this example, we will just use a dictionary to store our data.
 
-To get our server to take requests, we will set the server to listen for requests on port 3000.
-The port does not matter, as long as it is open and not being used by another process.
-
-```js
-// Start the server listening on the specified port
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
-```
-
-In your terminal, run `node server.js` in the directory of your server.
-It should say "Server listening on port 3000" if the server was started correctly.
-Now, if you browse to the URL `http://localhost:3000/`, you should see "Hello, world!" on the web page.
-
-Success!
-You have just set up a basic web server using Express!
-
-### Expanding the API - User Database Setup
-
-To make our server more robust, we can add more routes that do different things.
-These routes are the API of our server and allow us to make varying HTTP requests to get responses from our server.
-For the sake of demonstration, I will run through creating a simulated database and using a GET, POST, and DELETE request to fetch and manipulate data.
-APIs are covered more in-depth in the API workshop.
-
-First off, let's create a simple simulated database of users using an array of key-value pairs:
-
-```js
-// Simulated database of users
-let users = [
-  { id: 1, name: "Arisu" },
-  { id: 2, name: "Ako" },
-  { id: 3, name: "Hina" },
-];
-```
-
-Since our requests will most likely deal with JSON, let's add some middleware that parses JSON request bodies.
-
-```js
-// Add some middleware to parse JSON request bodies
-app.use(express.json());
-```
-
-This function will parse the request body if it contains JSON and store it as an object in the `req.body` property of the request object.
-
-For our first HTTP request, we will get the list of users from the server.
-
-```js
-// GET request handler for /api/users
-// Request to get all of the users in our simulated database
-app.get("/api/users", (req, res) => {
-  res.json({ users });
-});
-```
-
-Notice, we use app.get for our GET request, which is located at the `/api/users` endpoint.
-The server will then send the database of users as a response with `res.json({ users })`.
-
-Note: The `{ users }` JS syntax is used to send our users array as a single key-value pair, where `"users"` is the key, and the value of users (our database array) is the value.
-Also, note that whenever you make changes to the `server.js` file and save it, you must restart the server by running `node server.js` again for the changes to take effect.
-
-Now, when we browse to `http://localhost:3000/api/users`, we should see our simulated database!
-
-```js
-{"users":[{"id":1,"name":"Arisu"},{"id":2,"name":"Ako"},{"id":3,"name":"Hina"}]}
-```
-
-### Expanding the API - User Creation
-
-To demonstrate more HTTP requests, we will write two more endpoints: one to create a new user, and one to delete a user.
-
-To create a new user, we will need a POST request, as we are adding something to our database.
-Let's use the endpoint `/api/users`, as we will be manipulating the simulated database that we `GET` at the same endpoint.
-The difference this time is that the HTTP method differs, and the request body will need to supply a user to create.
-Because we cannot supply
-
-```js
-// POST request handler for /api/users
-// Request to create a new user
-app.post("/api/users", (req, res) => {
-  // Extract the name of the new user from the request body
-  const name = req.body.name;
-
-  // Set the new user's ID
-  const newId = users.length + 1;
-
-  // Insert new user with their ID into the simulated database
-  users.push({ id: newId, name: name });
-
-  // Log successful user creation
-  console.log(`Created user ${name} with ID ${newId}`);
-
-  // Sends a status code indicating successful creation
-  // along with a JSON response containing the ID and user
-  res.status(201).json({ id: newId, name });
-});
-```
-
-Note: The HTTP response status code `201` is used to indicate successful creation.
-
-### Testing Routes/Endpoints with Postman
-
-As our POST request requires a request body to create a user, we won't be able to test it with just our browser URL.
-A useful tool for testing APIs and their HTTP requests/responses is [Postman](https://www.postman.com/)!
-After either setting up the Postman desktop application or setting up Postman to work in the browser, we will want to go to our workspace.
-
-![browse to workspace](./postman-reference-photos/browse%20to%20workspace.png)
-
-Next, we will want to create a new HTTP request with `New -> HTTP Request`.
-
-![new button](./postman-reference-photos/new%20button.png)
-
-![make new HTTP request](./postman-reference-photos/create%20new%20http%20request.png)
-
-To create and test our POST request, select `POST` as the HTTP method and enter the POST endpoint's URL `http://localhost:3000/api/users`.
-Browse to the `Body` tab under the URL input box, and change the body type from `raw` to `JSON`.
-To create our user, we will need to supply a JSON body that looks like so:
-
-```JSON
-{
-    "name": "username of choice"
+```python
+PLANTS = {
+    1: {'name': 'Ginko', 'type': 'tree', 'age': 3.0},
+    2: {'name': 'Kelp', 'type': 'seaweed', 'age': 1.2},
+    3: {'name': 'Cactus', 'type': 'succulent', 'age': 5.0},
+    4: {'name': 'Fern', 'type': 'fern', 'age': 2.0},
 }
 ```
 
-After that, we can hit send and Postman should output the body of the HTTP response and its status code at the bottom!
+This dictionary simulates a typical table that has items with a primary key (unique id) and other columns. The keys will be the plant IDs, and the values will be dictionaries containing the plant's name, type, and age.
 
-![making the POST request](./postman-reference-photos/make%20the%20post%20request.png)
+Let's add some endpoints to our server to interact with this data. First, we will add a GET endpoint to get a list of all the plants in our database.
 
-We can also make our GET request using Postman like so:
+When making a RESTful API, we want our endpoints to refer to resources, not actions. For example, instead of having an endpoint like `/get-plants`, we would have an endpoint like `/plants`. For every resource, we will define a class that inherits from `Resource` and add it to our API.
 
-![making the GET requests](./postman-reference-photos/get%20request.png)
+```python
+class PlantList(Resource):
+    def get(self):
+        return list(PLANTS.values()), 200
 
-This allows us to see the JSON body of the HTTP response in a more organized format.
-It is highly suggested to tinker with Postman and get used to testing HTTP requests!
-It is a very useful tool for development!
-Now, on to deleting users:
-
-### Expanding the API - User Deletion
-
-Our delete user endpoint will act very similarly, however, our endpoint will utilize a parameter.
-Parameters are like variables that vary based on the URL route.
-Along with this, we also check if the user id specified to delete a user is valid and throw a `404` status code and error if it is not.
-The rest is just javascript to delete the user from our simulated database array!
-
-```js
-/ DELETE request handler for /api/users/:id
-// Request to delete a specified user
-app.delete('/api/users/:id', (req, res) => {
-  // Extract the id from the parameter in the route URL
-  const id = req.params.id;
-
-  // Locate the user to delete in the database
-  const index = id - 1;
-
-  // Send an error code along with an error message if the ID is invalid
-  if (index == -1 || index >= users.length) {
-    res.status(404).json({ error: `User with ID ${id} not found` });
-  } else {
-
-    // Delete the user from the simulated database
-    users.splice(index, 1);
-
-    // Output a status code and log message indicating successful deletion
-    console.log(`Deleted user with ID ${id}`);
-    res.sendStatus(204);
-  }
-});
+api.add_resource(PlantList, '/plants')
 ```
 
-Feel free to test this DELETE request using Postman!
-This can also be done by just using the URL in the browser.
+Here, we define a class `PlantList` that inherits from `Resource` and has a method `get` that returns a list of all the plants in our database. The first return value is the JSON body of our HTTP response and the second is the status code. `200` is used to indicate that the request was successful. Optional headers could be placed in a third return value. We then add this class to our API with the endpoint `/plants`.
 
-Anyways...
-That is it for our server and its API!
-You have successfully created an Express server and API using Node.js!
-If you've made it this far, have a cookie: :cookie:
+At this point, our `app.py` is already a fully functioning server that can handle GET requests to the `/plants` endpoint.
 
-###### :sparkles: HAPPY HACKING!!!! :sparkles:
+You can run the server by typing the following in your terminal (make sure you are in the `backend` folder):
 
-If you are still having trouble, please check out some of the other [workshops](https://github.com/uclaacm/hothX-workshops) created by the ACM Hack team!
-GLHF :>
+```shell
+python app.py
+```
+
+If you browse to `http://localhost:5000/plants`, you should see a JSON list of all the plants in our database.
+
+```JSON
+[
+    {
+        "name": "Ginko",
+        "type": "tree",
+        "age": 3.0
+    },
+    {
+        "name": "Kelp",
+        "type": "seaweed",
+        "age": 1.2
+    },
+    {
+        "name": "Cactus",
+        "type": "succulent",
+        "age": 5.0
+    },
+    {
+        "name": "Fern",
+        "type": "fern",
+        "age": 2.0
+    }
+]
+```
+
+What if we wanted to add a new plant to our database? We would use a POST request to the `/plants` endpoint.
+
+We would also need to specify the name, type, and age of the plant we want to add. We can do this by sending a JSON body with our request.
+
+In order to parse the JSON body of our request, we will use the `reqparse` module from Flask-RESTful.
+
+```python
+parser = reqparse.RequestParser()
+parser.add_argument('name')
+parser.add_argument('type')
+parser.add_argument('age', type=float)
+```
+
+Now we can add a new method to our `PlantList` class to handle a POST request.
+
+```python
+    def post(self):
+        args = parser.parse_args()
+        plant_id = max(PLANTS.keys()) + 1
+        PLANTS[plant_id] = {'name': args['name'], 'type': args['type'], 'age': args['age']}
+        return PLANTS[plant_id], 201
+```
+
+This method will parse the JSON body of our request and add a new plant to our database with a unique id. The `201` status code is used to indicate that the request was successful and that a new resource was created.
+
+Since this a request to the same endpoint, we don't need to add a new resource to our API. Just adding the method to our `PlantList` class is enough.
+
+Now, suppose you want to make a POST request to `http://localhost:5000/plants` with a JSON body like this:
+
+```JSON
+{
+    "name": "Rose",
+    "type": "flower",
+    "age": 0.5
+}
+```
+
+To do this, type `>Postman: Create a new HTTP Request` in your VSCode search bar and select `POST` as the HTTP method. Then, enter `http://localhost:5000/plants` as the URL and select the `Body` tab under the URL input box. Change the body type from `raw` to `JSON` and enter the JSON body above. After that, you can hit send and Postman should output the body of the HTTP response and its status code at the bottom.
+
+You can check to see if this plant is in our database by then making a GET request to `http://localhost:5000/plants`.
+
+Yay, you've just created a server with Flask that can handle GET and POST requests! :tada:
+
+As a challenge, try adding another endpoint to the server from which we can delete, update, or get information about a specific plant in the database. You can use the `parser` to parse the JSON body of the request and the `del` keyword to delete a key-value pair from a dictionary. Check out the solutions in the [`app.py`](intro-to-servers/demo/backend/app.py) file in this repository if you get stuck.
+
+## Frontend
+
+Now, let's create a React frontend to interact with our server.
+
+In the terminal, navigate back to the `demo-app` folder and create a new folder for our frontend via:
+
+```shell
+npx create-react-app client
+```
+
+This will create a boiler plate React frontend in a folder called `client` inside our `demo-app` folder. Go ahead and replace the contents of the default `client/src/App.js` file with the code I've provided in the [`client/src/App.js`](intro-to-servers/demo/client/src/App.js) file in this repository.
+
+> Side Note:
+>
+> if you want to avoid typing the full URI, you can add the following key-value pair to your package.json file:
+>
+> ```JSON
+> "proxy": "http://localhost:5000"
+> ```
+>
+> This will allow you to make fetch requests to relative URIs. For example, instead of making a fetch request to `http://localhost:5000/plants`, you can make a fetch request to `/plants`.
+
+Now, navigate to the `client` folder and start the React server:
+
+```shell
+cd client
+npm start
+```
+
+You should see a webpage that displays a list of all the plants in our database and a form to add a new plant. If you add a new plant, it should appear in the list of plants (you may need to refresh the page).
+
+Congratulations! You've just created a full-stack application with a server and a client! :tada:
+
+To learn more about Flask-RESTful and why I used it instead of vanilla Flask, check out the [documentation](https://flask-restful.readthedocs.io/en/latest/).
+
+## Happy Hacking! :computer:
