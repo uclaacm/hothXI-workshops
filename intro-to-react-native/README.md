@@ -76,7 +76,7 @@ Text and Image are two of the most used components. Their syntax is as follows:
 <Text> Good luck at this Hackathon! </Text>
 <Image source={require("HOTHXI.png")} />
 ```
-...where the first line of code will show "Good Luck at this Hackathon!" and the second line will show an image of some file named "duck.png". For images, you also often need to include the filepath to the image-- such as "./assets/HOTHXI.png" if the image was in your assets folder, as an example. If you're still confused about this, I recommend looking at the video for a clearer demonstration!
+...where the first line of code will show "Good Luck at this Hackathon!" and the second line will show an image of some file named "HOTHXI.png". For images, you also often need to include the filepath to the image-- such as "./assets/HOTHXI.png" if the image was in your assets folder, as an example. If you're still confused about this, I recommend looking at the video for a clearer demonstration!
 ### Views
 Views are the most fundamental core component. They are containers that hold components! However, views themselves are invisible. Basically, views are useful in that we can sandwich multiple things within them in order to format things are group things together. The syntax for a view is:
 ```JSX
