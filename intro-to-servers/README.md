@@ -329,7 +329,7 @@ In the terminal, navigate back to the `demo-app` folder and create a new folder 
 npx create-react-app client
 ```
 
-This will create a boiler plate React frontend in a folder called `client` inside our `demo-app` folder. Go ahead and replace the contents of the default `client/src/App.js` file with the code I've provided in the [`client/src/App.js`](intro-to-servers/demo/client/src/App.js) file in this repository.
+This will create a boiler plate React frontend in a folder called `client` inside our `demo-app` folder. Go ahead and replace the contents of the default `client/src/App.js` file with the code I've provided in the [`App.js`](intro-to-servers/App.js) file in this repository.
 
 > Side Note:
 >
